@@ -6,7 +6,7 @@ The agent lens over the typed graph (work in progress). It ships as a family of 
 - [au-mcp-core](https://github.com/arsumbris/au-mcp-core) — the bundled baseline plugins: the default agent surface (file ops, engine reads, intents) + the always-on floors.
 - [au-mcp-adapter-cc](https://github.com/arsumbris/au-mcp-adapter-cc) / [au-mcp-adapter-codex](https://github.com/arsumbris/au-mcp-adapter-codex) — the harness adapters (Claude Code, Codex).
 
-The daemon an agent talks to the graph through.
+The daemon is how an agent talks to the graph through.
 The engine surfaces the facts. au-mcp governs what the agent does with them.
 
 - One daemon per workspace, paired 1:1 with the engine, over one socket.
