@@ -49,7 +49,7 @@ Into the same parent as this repo (`~/arsumbris/`), one sibling directory per pa
 
 ```sh
 cd ~/arsumbris
-VERSION=0.0.1-alpha   # the release tag to install (see VERSION.md); pin every part to the same one
+VERSION=0.0.2-alpha   # the release tag to install (see VERSION.md); pin every part to the same one
 for r in \
   au-engine au-engine-sdk au-type-system \
   au-host \
@@ -118,8 +118,7 @@ The standalone repos have **no build step** — they are consumed directly as Ty
 cd ~/arsumbris/au-host
 pnpm --filter app exec install-electron  # fetch Electron's runtime (Electron 42 no longer downloads it on install)
 pnpm --filter app rebuild:native         # rebuild node-pty for Electron + fix its helper perms
-pnpm -r build                            # the Electron app + all projections
-pnpm --filter app build:shared-deps      # the single served shared-dep bundle
+pnpm -r build                            # the Electron app, its served shared-dep bundle, all projections
 ```
 
 `install-electron` is **required**: as of Electron 42 the runtime (the Electron binary + Chromium and its license notices) is no longer downloaded during `pnpm install`, so the host build fails without this explicit step. It is Electron's own supported downloader.

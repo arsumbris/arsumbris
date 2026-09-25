@@ -37,7 +37,7 @@ meta:
     title: Note
   - type: projection-runtime-meta::au-host-sdk
     entry: ./dist/index.js          # the built ESM module
-    contractVersion: 7              # must equal MOUNT_CONTRACT_VERSION in au-host-sdk
+    contractVersion: 8              # must equal MOUNT_CONTRACT_VERSION in au-host-sdk
 ```
 
 The module exports a `mount`. It returns its own cleanup.
@@ -80,10 +80,15 @@ fields:
   children: mountable::au-host-sdk*[]    # the projections it holds, by reference
 ```
 
+### A bar item
+
+A compact widget a bar lays out, like the engine status or the editor's Ln/Col.
+Extend `bar-item-projection`. Every bar offers each discovered item kind, so a new item joins every bar.
+
 ### A bar
 
-Aggregates every view of a role into a linear strip.
-Extend `bar-projection` (e.g. `status-projection` fills the status bar).
+A strip on a dock edge that lays out bar items. It is not a container: it holds its items in its own config.
+Extend `bar-projection` for a bar of your own. The first-party one is `bar`.
 
 ### A placeholder
 
@@ -162,7 +167,7 @@ The layout tree is the reference graph.
 
 **Containers** arrange other projections. No container is privileged, each owns only its own layout.
 - `bento` (spatial splits), `tabs` (stacked groups), `dock` (edge chrome frame),
-  `sandwich` (left / center / right), `column` (accordion), `bar` (linear aggregator).
+  `sandwich` (left / center / right), `column` (accordion).
 
 **View-state channels** are how views coordinate.
 - `intent` (typed actions, routed to a handler or broadcast), `focus` (the active view),
