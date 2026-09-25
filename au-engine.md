@@ -49,7 +49,7 @@ You can use cross-repo links to span the graph across repo boundaries.
 
 The engine will parse markdown and YAML,
 and the type system only applies on those filetypes for now.
-But media files or other assets are also be indexed as untyped members.
+But media files or other assets are also indexed as untyped members.
 
 
 ## Arsumbris typing language
