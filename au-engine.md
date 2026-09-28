@@ -9,7 +9,7 @@ It turns folders of markdown and YAML into a typed, queryable, live graph.
 
 ## Your repos with arsumbris
 
-You scope different areas of work into their own git-tracked repo.
+You scope different areas of work into their own git-tracked repos.
 
 Each repo declares its identity and dependencies under `.arsumbris/repo.yaml`
 
