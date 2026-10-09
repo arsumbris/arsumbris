@@ -4,7 +4,8 @@ The agent lens over the typed graph (work in progress). It ships as a family of 
 - [au-mcp](https://github.com/arsumbris/au-mcp) — the kernel daemon. Mechanism only, zero tools.
 - [au-mcp-sdk](https://github.com/arsumbris/au-mcp-sdk) — the contract: wire protocol, plugin + adapter interfaces, base vocabulary.
 - [au-mcp-core](https://github.com/arsumbris/au-mcp-core) — the bundled baseline plugins: the default agent surface (file ops, engine reads, intents) + the always-on floors.
-- [au-mcp-adapter-cc](https://github.com/arsumbris/au-mcp-adapter-cc) / [au-mcp-adapter-codex](https://github.com/arsumbris/au-mcp-adapter-codex) — the harness adapters (Claude Code, Codex).
+- [au-mcp-adapter-cc](https://github.com/arsumbris/au-mcp-adapter-cc) / [au-mcp-adapter-codex](https://github.com/arsumbris/au-mcp-adapter-codex) — the harness adapters shipped with this release (Claude Code, Codex).
+- [au-mcp-adapter-grok](https://github.com/SpecDLC/au-mcp-adapter-grok) — a Grok adapter in its own repo. It is not part of the release pin. Clone it as a sibling named `au-mcp-adapter-grok` when you want it.
 
 The daemon an agent talks to the graph through.
 The engine surfaces the facts. au-mcp governs what the agent does with them.

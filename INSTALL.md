@@ -39,7 +39,7 @@ Each part is its own repo, checked out under its **plain name** (`au-engine`, `a
 - **git**
 - **Rust** (stable) + `cargo` — builds the engine.
 - **Node** + **pnpm** — au-host pins both in `au-host/package.json` (`packageManager: pnpm@11.1.1` and `engines.node: >=23`); use those for a reproducible build. With Corepack enabled, the pinned pnpm is selected automatically. **Tested on Node 24 LTS — use it.** Node ≥ 23 is the floor, but **Node 26 is not yet supported** (its install path is currently broken). The standalone JS repos run as TypeScript source (node type-stripping, no build); au-host builds (see step 4).
-- **An agent harness** *(optional — only for the agent layer)* — **Claude Code** or **Codex** work out of the box (via `au-mcp-adapter-cc` / `au-mcp-adapter-codex`). Any other model or harness needs an adapter. The engine and host run without one; you just won't get agent capabilities until a harness is connected.
+- **An agent harness** *(optional — only for the agent layer)* — **Claude Code** or **Codex** are the adapters in this release (`au-mcp-adapter-cc` / `au-mcp-adapter-codex`). A Grok adapter can be cloned beside them; it is listed below and is not part of the clone loop. Any other harness needs an adapter of its own. The engine and host run without one; you just won't get agent capabilities until a harness is connected.
 - **macOS: Xcode Command Line Tools** (`xcode-select --install`) — needed to build the engine, and provides the `python3` the setup script (step 5) uses. Most developers already have them.
 
 
@@ -72,6 +72,7 @@ What each is (see [README.md](README.md) for the layer overview):
 - **au-mcp-core** — the baseline plugins (default tools + governance floors).
 - **au-mcp-adapter-cc** — the Claude Code adapter.
 - **au-mcp-adapter-codex** — the Codex CLI adapter.
+- **au-mcp-adapter-grok** — optional Grok adapter. Not part of this release, and not cloned by the loop above. The tree is [SpecDLC/au-mcp-adapter-grok](https://github.com/SpecDLC/au-mcp-adapter-grok). Clone it as a sibling named `au-mcp-adapter-grok`, then `pnpm install` in that directory.
 - **au-type-codegen** — generates TS from engine type-defs (used by the codegen scripts).
 - **the knowledge layer** — first-party knowledge-work capabilities (content + skills, no build step):
   - `au-base-types` (base ontology) and `au-weave` (the weaving layer over it).
